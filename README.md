@@ -2,21 +2,10 @@
 Net core5  vue3 puppeteer sharp的一次尝试
 
 ## 提示
-[TG 频道](https://t.me/joinchat/4nf-VfnBN6pmZDdl) 
 
-[TG 群组](https://t.me/joinchat/dL-NJh1G6bc2OGM1) 
+由于我自己的环境是centos x86，arm不支持
 
-由于我自己的环境是centos x86，arm并未测试
-
-
-更新自动五次滑块
-
-在Fork就跑路
-
-一个文档你们Fork啥啊，，
-## 支持的架构
-![image](https://user-images.githubusercontent.com/87279659/137679751-7c2e901f-0429-4c5c-a6d2-120b8848048f.png)
-查看地址:https://github.com/dotnet/core/blob/main/release-notes/5.0/5.0-supported-os.md
+这是打包过的 不要fork
 
 
 ## 安装教程
