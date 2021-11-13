@@ -27,9 +27,8 @@ mkdir -p  Config && cd Config
 ```
 
 3下载config.json 配置文件 并且修改自己的配置 不能缺少
-```
-wget -O Config.json  https://raw.githubusercontent.com/NolanHzy/nvjdc/main/Config.json
-```
+
+如果你是装过NVjdc 请先看更新说明
 
 ```
 wget -O Config.json  https://raw.githubusercontent.com/NolanHzy/nvjdc/main/Config.json
