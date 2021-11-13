@@ -1,5 +1,5 @@
 # nvjdc
-Net core5  vue3 puppeteer sharp的一次尝试
+
 
 ## 提示
 
@@ -7,15 +7,26 @@ Net core5  vue3 puppeteer sharp的一次尝试
 
 这是打包过的 不要fork
 
+不是热更新 每次修改配置需要重启容器
+
 
 ## 安装教程
-1 执行命令
+
+如果你是装过NVjdc 先看看后面1.2以前如何更新之1.2升级说明
+
+
+1 拉取基础镜像以后不需要拉取镜像了 如果需要拉取我会通知
+```
+sudo docker pull nolanhzy/nvjdc:latest
+```
+
+2 执行命令
 
 ```
 yum install wget unzip -y
 ```
 
-2创建一个目录放配置以及chromium
+3创建一个目录放配置以及chromium
 ```
 cd /root
 ```
@@ -26,9 +37,8 @@ mkdir nolanjdc && cd /root/nolanjdc
 mkdir -p  Config && cd Config
 ```
 
-3下载config.json 配置文件 并且修改自己的配置 不能缺少
+4下载config.json 配置文件 并且修改自己的配置 不能缺少
 
-如果你是装过NVjdc 请先看更新说明
 
 ```
 wget -O Config.json  https://raw.githubusercontent.com/NolanHzy/nvjdc/main/Config.json
@@ -38,31 +48,31 @@ wget -O Config.json  https://raw.githubusercontent.com/NolanHzy/nvjdc/main/Confi
 wget -O Config.json   https://ghproxy.com/https://raw.githubusercontent.com/NolanHzy/nvjdc/main/Config.json
 ```
 
-4 回到nolanjdc目录创建chromium文件夹并进入
+5 回到nolanjdc目录创建chromium文件夹并进入
 
 ```
 cd /root/nolanjdc && mkdir -p  .local-chromium/Linux-884014 && cd .local-chromium/Linux-884014
 ```
 
-5下载 chromium 
+6下载 chromium 
 
 ```
 wget https://mirrors.huaweicloud.com/chromium-browser-snapshots/Linux_x64/884014/chrome-linux.zip && unzip chrome-linux.zip
 ```
 
-6删除刚刚下载的压缩包 
+7删除刚刚下载的压缩包 
 
 ```
 rm  -f chrome-linux.zip
 ```
 
-7 回到刚刚创建的目录
+8回到刚刚创建的目录
 
 ```
-cd  /nolanjdc
+cd  /root/nolanjdc
 ```
 
-8拉源码
+9拉源码
 国内
 ```
 git clone https://ghproxy.com/https://github.com/NolanHzy/nvjdcdocker.git /root/nolanjdc
@@ -72,18 +82,17 @@ git clone https://ghproxy.com/https://github.com/NolanHzy/nvjdcdocker.git /root/
 git clone https://github.com/NolanHzy/nvjdcdocker.git /root/nolanjdc
 ```
 
-9启动镜像
+10启动镜像
 
 ```
 sudo docker run   --name nolanjdc -p 5701:80 -d  -v  "$(pwd)":/app \
--it --privileged=true  nolanhzy/nvjdc:1.1
+-it --privileged=true  nolanhzy/nvjdc:latest
 ```
 
-10查看 日志 
+11查看 日志 
 
 ```
 docker logs -f nolanjdc 
-
 ```
 
   
@@ -91,14 +100,40 @@ docker logs -f nolanjdc
 出现 NETJDC  started 即可 
 
 
+## 1.2以前如何更新之1.2
+如果你是装过NVjdc 请跳过第一拉取镜像 
+
+
+将你的配置文件放到/root/nolanjdc/Config 文件夹中
+
+
+将你的浏览器所有文件放到/root/nolanjdc/.local-chromium/Linux-884014 文件夹中
+
+删除容器
+```
+docker rm -f nolanjdc 
+```
+然后从步骤8开始即可
+
+后续更新只需要按照下方代码更新即可
+
 
 ## 更新
 
+```
+cd /root/nolanjdc
+```
+```
+docker stop nolanjdc
+```
+```
+git pull
+```
+```
+docker start nolanjdc
+```
 
 
-
-## 最后
-觉得不错。回来帮我点个star
 ## 特别声明:
 
 * 本仓库涉仅用于测试和学习研究，禁止用于商业用途，不能保证其合法性，准确性，完整性和有效性，请根据情况自行判断.
