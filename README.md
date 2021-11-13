@@ -17,10 +17,10 @@ yum install wget unzip -y
 
 2创建一个目录放配置以及chromium
 ```
-cd root
+cd /root
 ```
 ```
-mkdir nolanjdc && cd root/nolanjdc
+mkdir nolanjdc && cd /root/nolanjdc
 ```
 ```
 mkdir -p  Config && cd Config
@@ -41,7 +41,7 @@ wget -O Config.json   https://ghproxy.com/https://raw.githubusercontent.com/Nola
 4 回到nolanjdc目录创建chromium文件夹并进入
 
 ```
-cd root/nolanjdc && mkdir -p  .local-chromium/Linux-884014 && cd .local-chromium/Linux-884014
+cd /root/nolanjdc && mkdir -p  .local-chromium/Linux-884014 && cd .local-chromium/Linux-884014
 ```
 
 5下载 chromium 
@@ -63,9 +63,13 @@ cd  /nolanjdc
 ```
 
 8拉源码
-
+国内
 ```
-sudo docker pull nolanhzy/nvjdc:0.5
+git clone https://ghproxy.com/https://github.com/NolanHzy/nvjdcdocker.git /root/nolanjdc
+```
+国外
+```
+git clone https://github.com/NolanHzy/nvjdcdocker.git /root/nolanjdc
 ```
 
 9启动镜像
